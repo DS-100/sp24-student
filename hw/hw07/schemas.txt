@@ -1,0 +1,39 @@
+The database has 4 tables: `Name`, `Role`, `Rating`, and `Title`.
+
+See descriptions of each table's schema below. We have only included descriptions for columns that could be of potential use in this homework.
+    
+`Name`: Contains the following information for names of people.
+    
+- nconst (integer) - alphanumeric unique identifier of the name/person
+- primaryName (text) - name by which the person is most often credited
+- birthYear (text) - in YYYY format
+- deathYear (text) - in YYYY format
+    
+    
+`Role`: Contains the principal cast/crew for titles.
+    
+- tconst (integer) - alphanumeric unique identifier of the title
+- ordering (text) - a number to uniquely identify rows for a given tconst
+- nconst (integer) - alphanumeric unique identifier of the name/person
+- category (text) - the category of job that person was in
+- characters (text) - the name of the character played if applicable, else '\\N'
+    
+`Rating`: Contains the IMDb rating and vote information for titles.
+    
+- tconst (integer) - alphanumeric unique identifier of the title
+- averageRating (text) – weighted average of all the individual user ratings
+- numVotes (text) - number of votes (i.e., ratings) the title has received
+    
+`Title`: Contains the following information for titles.
+
+- tconst (integer) - alphanumeric unique identifier of the title
+- titleType (text) -  the type/format of the title
+- primaryTitle (text) -  the more popular title / the title used by the producers on promotional materials at the point of release
+- isAdult (text) - 0: non-adult title; 1: adult title
+- startYear (text) - represents the release year of a title.
+- runtimeMinutes (text) - primary runtime of the title, in minutes
+    
+
+From the above descriptions, we can conclude the following:
+- `Name.nconst` and `Title.tconst` are primary keys of the `Name` and `Title` tables, respectively.
+- `Role.nconst` and `Role.tconst` are **foreign keys** that point to `Name.nconst` and `Title.tconst`, respectively.
